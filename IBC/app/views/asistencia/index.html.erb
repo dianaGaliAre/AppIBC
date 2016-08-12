@@ -1,0 +1,38 @@
+<%= render '/computacion/head' %>
+      <hr>
+      <h2>Asistencias</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> <%=Date.current.to_s%></h5>
+      <td><%= link_to 'Asistencia','/asistencia/pasar', class:"btn btn-warning"%></td>
+       <table class="table">
+        <tr>
+          <th>Alumno</th>
+          <th>Asistencia</th>
+          <th>Retardo</th>
+          <th>Falta</th>
+        </tr>
+        <%@asis.each do |a|%>
+          <tr>
+            <td><%=a.alumno.nombre_a%></td>
+             <%if a.asistencia %>
+                     <td class=' btn-success text-center' >&bull;</td>
+              <% else %>
+                <td></td>
+            <%end%>
+             <%if a.retardo %>
+                    <td class=' btn-warning text-center' >&bull;</td>
+                      <% else %>
+                <td></td>
+            <%end%>
+                         
+            <%if a.falta %>
+                    <td class=' btn-danger text-center' >&bull; </td>
+            <% else %>
+                 <td></td>
+            <%end%>
+                               
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

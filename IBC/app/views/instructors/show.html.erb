@@ -1,0 +1,38 @@
+<%= render 'head' %>
+		<p id="notice"><%= notice %></p>
+
+		<div class="list-group-item list-group-item-info col-sm-5">
+			<p >
+				<strong>Nombre</strong><br>
+				<%= @instructor.nombre %>
+			</p>
+			<p>
+				<strong>Apellido Paterno</strong><br>
+				<%= @instructor.ap %>
+			</p>
+			<p>
+				<strong>Apellido Materno</strong><br>
+				<%= @instructor.am %>
+			</p>
+			<p>
+				<strong>Dirección</strong><br>
+				<%= @instructor.dir %>
+			</p>
+		</div>
+		<div class="list-group-item list-group-item-info col-sm-5">
+			<p>
+				<strong>Día Laboral</strong><br>
+				<%= @instructor.dia %>
+			</p>
+			<p>
+				<strong>Horario</strong><br>
+				<%= @instructor.horario %>
+			</p>
+			<p>
+				<strong>Email</strong><br>
+				<%= @instructor.mail %>
+			</p>
+		</div>
+	  </div>
+   </div>
+</div>

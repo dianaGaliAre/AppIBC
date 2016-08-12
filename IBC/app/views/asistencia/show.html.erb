@@ -1,0 +1,27 @@
+<%= render '/computacion/head' %>
+      <h4><small>Cosas de </small></h4>
+      <hr>
+      <h2>Asistencias</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+       <table class="table">
+        <tr>
+          <th>Alumno</th>
+          <th>Asistencia</th>
+          <th>Falta</th>
+          <th>Retardo</th>
+        </tr>
+        <%@asistencia.each do |a|%>
+          <tr>
+          <td></td>
+            <td><%=a.asistencia%></td>
+            <td><%=a.falta%></td>
+            <td> <%=a.retardo%></td>
+            
+                     
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<%= render '/computacion/head' %>
+
+	     <h4><small>Cosas de Alumnos</small></h4>
+	     <hr>
+	     <h2>Alumnos</h2>
+	     <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+		<div class="form-group">
+			<%= form_for @alumno do |f| %>
+				<% if @alumno.errors.any? %>
+			<div id="error_explanation">
+			<h2><%= pluralize(@alumno.errors.count, "error") %> prohibited
+		      	this alumno from being saved:</h2>
+				<ul><% @alumno.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+			<% end %>
+			<div class="list-group-item list-group-item-info col-sm-5">
+				<p>
+					<%= f.label :Nombre %><br>
+					<%= f.text_field :nombre_a %>
+				</p>
+				<p>
+					<%= f.label :Apellido_paterno %><br>
+					<%= f.text_field :app %>
+				</p>
+				<p>
+					<%= f.label :Apellido_Materno %><br>
+					<%= f.text_field :apm %>
+				</p>
+				<p>
+					<%= f.label :Dirección %><br>
+					<%= f.text_field :direccion %>
+				</p>
+				<p>
+					<%= f.label :Fecha_Nacimiento, class:"date"%><br>
+					<%= f.date_field :fecha_nac %>
+				</p>
+			</div>
+			<div class="list-group-item list-group-item-info col-sm-5">
+
+				<p>
+					<%= f.label :Telefono %><br>
+					<%= f.text_field :telefono %>
+				</p>
+				<p>
+					<%= f.label :Email %><br>
+					<%= f.email_field :email %>
+
+				</p>
+				<p>
+				<%=f.select(:curso_id, @curso.collect {|d| [d.nombre_curso, d.id]}, {}, {:class => "form-control"} )%>
+				</p>
+				<br>
+				<p>
+				<%=f.select(:dium_id, @dium.collect {|d| [d.dia, d.id]}, {}, {:class => "form-control"} )%>
+				</p>
+				<br>
+				<p>
+					<%= f.submit 'Guardar', class:"btn btn-success"%>
+					<a href="/alumnos" class="btn btn-warning">Cancelar</a>
+				</p>
+			</div>
+			<% end %>
+		</div>
+    </div>
+  </div>
+</div>

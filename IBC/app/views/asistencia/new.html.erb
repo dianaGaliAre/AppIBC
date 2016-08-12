@@ -1,0 +1,42 @@
+<%= render '/computacion/head' %>
+      <h4><small>Cosas de </small></h4>
+      <hr>
+      <h2>Asistencias</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+		<div class="form-group">
+			<%= form_for @asistencia do |f| %>
+				<% if @asistencia.errors.any? %>
+			<div id="error_explanation">
+			<h2><%= pluralize(@asistencia.errors.count, "error") %> prohibited
+		      	this asistencia from being saved:</h2>
+				<ul><% @asistencia.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+			<% end %>
+			<div class="list-group-item list-group-item-info col-sm-5">
+
+			<table class="table">
+		        <tr>
+		          <th>Alumno</th>
+		          <th>Asistencia</th>
+		          <th>Falta</th>
+		          <th>Retardo</th>
+		        </tr>
+		        <% @asis.each do |a| %>
+		          <tr>
+		          <td><%=a.alumno.nombre_a%></td>
+		          <td><%= f.check_box :asistencia%></td>
+		          <td><%= f.check_box :falta%></td>
+		          <td><%= f.check_box :retardo%></td>	            
+		                     
+		          </tr>
+		        <%end%>
+		      </table>				
+			</div>
+				<%= f.submit 'Guardar', class:"btn btn-success"%>
+				<a href="/asistencia" class="btn btn-warning">Cancelar</a>
+			<% end %>
+		</div>

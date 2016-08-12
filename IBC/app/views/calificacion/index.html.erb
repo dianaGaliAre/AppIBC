@@ -1,0 +1,21 @@
+<%= render '/computacion/head' %>
+<h1>Calificacion</h1>
+
+<table class="table">
+		<tr>
+			<th>Alumno</th>
+			<% @materia.each do |m| %>
+				<th><%= m.nombre_materia %></th>
+			<% end %>
+		</tr>
+        <tr>
+         <% @cali.each do |c| %>			
+          <td><%= link_to c.nombre_a, edit_calificacion_path(c) %></td>
+			<%= render partial: "mostrar", locals: {zone: c.id} %>                   
+        </tr>
+		<% end %>
+
+      </table>
+      </div>
+	</div>
+</div>

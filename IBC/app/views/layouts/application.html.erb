@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IBC</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta content="text/html; charset=utf-8"/>
+  <%= csrf_meta_tags %>
+ <!-- <script language="javascript" type="text/javascript">
+   window.history.forward(1);
+</script> -->
+</head>
+<body>
+<% if current_user %> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/ibc">IBC</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <!--<li class="active"><a href="#">Belleza</a></li>-->
+      <li class="active"><a href="/computacion">Computación</a></li>
+      <li class="active"><a href="/instructors">Registrar Instructor</a></li>      
+      <li class="active"><a href="/usuario">Usuario</a></li>        
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a style="text-transform: capitalize"><span class="glyphicon glyphicon-user"></span><%= current_user.nombre %></a></li>      
+      <li><%= link_to "Cerrar", logout_path, method: "delete" %></li>      
+    </ul>
+  </div>
+</nav>
+
+<% end %>
+
+<div style="height: 490px;">
+<%= yield %>
+<div>
+</div>
+</div>
+  <% if current_user %> 
+    <div id="footer">
+      <div >
+        <div class="navbar-inner">
+          <div class="container">
+            <footer style="  bottom:0; 
+  left:0; " class="container-fluid text-center text-info">
+              <p>Guerrero 7 Dolores Hidalgo</p>
+              <p>Instituto de Belleza y Computación</p>
+              <p>l_farias@hotmail.com</p>
+              <p><a href="https://www.facebook.com/BELLEZAYCOMPUTACION/" target="_blank">Facebook</a></p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>     
+</body>
+</html>

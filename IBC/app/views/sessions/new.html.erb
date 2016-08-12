@@ -1,0 +1,61 @@
+<% if session[:user_id] != nil %>
+<script type="text/javascript">
+window.location="/ibc";
+</script>
+<% else %>
+
+
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">Instituto de Belleza y Computación</h1>
+        
+	</div>
+</div>
+<!-- END # BOOTSNIP INFO -->
+
+<!-- BEGIN # MODAL LOGIN -->
+<div class="jumbotron text-center col-md-6 col-md-offset-3">
+    <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Abrir inicio de sesión </a></p> 
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					
+                <%= image_tag "ibc.png",class:"menu-icon", id:"img_logo", size:"250x250"%>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+                
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                <%= form_for(:session, url: login_path) do |f| %> 
+                    <!-- Begin # Login Form -->
+		                <div class="modal-body">
+				    		                            
+							  <%= f.text_field :nombre, :placeholder => "Nombre", class:"form-control"%> 
+							  <%= f.password_field :password, :placeholder => "Password", class:"form-control"%> 
+							  			    		
+        		    	</div>
+				        <div class="modal-footer">
+                            <div>
+                                <%= f.submit "Entrar", class: "btn btn-primary btn-lg btn-block" %>
+							<% end %>	
+                            </div>
+				    	    <!--<div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+				        </div>
+                    <!-- End # Login Form -->
+                    
+                </div>
+                <!-- End # DIV Form -->
+                
+			</div>
+		</div>
+	</div>
+    <!-- END # MODAL LOGIN -->
+
+  </div>
+  <% end %>

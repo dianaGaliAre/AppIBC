@@ -1,0 +1,5 @@
+<% @res  = Calificacion.where("alumno_id =?", zone) %>
+
+<% @res.each do |c| %>
+	<td><%= c.calificacion%></td>
+<% end %>

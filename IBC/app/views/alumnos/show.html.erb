@@ -1,0 +1,45 @@
+<%= render '/computacion/head' %>
+
+	    <h4><small>Cosas de Alumnos</small></h4>
+	    <hr>
+	    <h2>Alumnos</h2>
+	    <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+		<div class="list-group-item list-group-item-info col-sm-5">
+			<p >
+				<strong>Nombre</strong><br>
+				<%= @alumno.nombre_a %>
+			</p>
+			<p>
+				<strong>Apellido Paterno</strong><br>
+				<%= @alumno.app %>
+			</p>
+			<p>
+				<strong>Apellido Materno</strong><br>
+				<%= @alumno.apm %>
+			</p>
+			<p>
+				<strong>Dirección</strong><br>
+				<%= @alumno.direccion %>
+			</p>
+		</div>
+		<div class="list-group-item list-group-item-info col-sm-5">
+			<p>
+				<strong>Fecha Nacimiento</strong><br>
+				<%= @alumno.fecha_nac %>
+			</p>
+			<p>
+				<strong>Telefono</strong><br>
+				<%= @alumno.telefono %>
+			</p>
+			<p>
+				<strong>Email</strong><br>
+				<%= @alumno.email %>
+			</p>
+			<p>
+				<strong>Curso</strong><br>
+				<%= @curso.nombre_curso %>
+			</p>
+		</div>
+	</div>
+  </div>
+</div>

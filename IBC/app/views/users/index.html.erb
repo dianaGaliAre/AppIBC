@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/usuario">Inicio </a></li>
+        <li><a href="#section2">Configuraciones</a></li>
+      </ul><br>      
+    </div>
+
+    <!-- Contenido -->
+    <div class="col-sm-2 sidenav ">
+      <h1>Usuarios</h1>
+    </div>
+    <div class="col-sm-6 sidenav ">
+      <% @user.each do |u| %>
+      <h1><kbd>
+      <%= link_to u.nombre + " " + u.ap, 'signup' %></kbd> <% if u.user != nil %> - <kbd><%= u.user.nombre %></kbd> <% end %></h1>
+      <% end %>
+    </div>
+  </div>
+</div>

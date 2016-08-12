@@ -1,0 +1,33 @@
+<%= render '/computacion/head' %>
+      <hr>
+      <h2>Asistencias</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+		<div class="form-group">
+			<%= form_for @asistencia, url: asistencia_update_path do |f| %>
+				
+			<div class="list-group-item list-group-item-info col-sm-5">
+
+			<table class="table">
+		        <tr>
+		          <th>Alumno</th>
+		          <th>Asistencia</th>		          
+		          <th>Retardo</th>
+		          <th>Falta</th>
+		        </tr>
+		        <% @asis.each do |a| %>
+		          <tr>
+		          <%= f.hidden_field :id, :value => a.id, :name => "#{a.alumno_id}[id]"%>
+		          <td><%= a.alumno.nombre_a %></td>
+		          <td><%= f.check_box :asistencia, checked: a.asistencia, :name => "#{a.alumno_id}[asistencia]"  %></td>		          
+		          <td><%= f.check_box :retardo, checked: a.retardo, :name => "#{a.alumno_id}[retardo]" %></td>	 
+		          <td><%= f.check_box :falta, checked: a.falta, :name => "#{a.alumno_id}[falta]" %></td>           
+		                     
+		          </tr>
+		        <%end%>
+		      </table>				
+			</div>
+				<%= f.submit 'Guardar', class:"btn btn-success"%>
+				<a href="/asistencia" class="btn btn-warning">Cancelar</a>
+			<% end %>
+		</div>

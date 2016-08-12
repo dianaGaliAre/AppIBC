@@ -1,0 +1,21 @@
+<%= render '/computacion/head' %>
+      <hr>
+      <h2>Alumnos</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> <%=Date.current.to_s%></h5>
+      <%= link_to 'Nueva Materia', '/materia/new',class:"btn btn-primary" %>
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+        </tr>
+        <%@materia.each do |a|%>
+          <tr>
+            <td><%=a.nombre_materia%></td>
+            <td><%= link_to 'Mostrar', materium_path(a), class:"btn btn-info"%></td>
+            <td><%= link_to 'Editar', "materia/"+a.id.to_s+"/edit", class:"btn btn-warning"%></td>
+              
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

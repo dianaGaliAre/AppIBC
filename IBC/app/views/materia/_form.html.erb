@@ -1,0 +1,35 @@
+<%= render '/computacion/head' %>
+
+	     <h4><small>Cosas de Alumnos</small></h4>
+	     <hr>
+	     <h2>Alumnos</h2>
+	     <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+		<div class="form-group">
+			<%= form_for @materia do |f| %>
+				<% if @materia.errors.any? %>
+			<div id="error_explanation">
+			<h2><%= pluralize(@materia.errors.count, "error") %> prohibited
+		      	this alumno from being saved:</h2>
+				<ul><% @materia.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+			<% end %>
+			<div class="list-group-item list-group-item-info col-sm-5">
+				<p>
+					<%= f.label :Nombre %><br>
+					<%= f.text_field :nombre_materia %>
+				</p>
+
+				<p>
+					<%= f.submit 'Guardar', class:"btn btn-success"%>
+					<a href="/alumnos" class="btn btn-warning">Cancelar</a>
+				</p>
+			</div>
+			<% end %>
+		</div>
+    </div>
+  </div>
+</div>

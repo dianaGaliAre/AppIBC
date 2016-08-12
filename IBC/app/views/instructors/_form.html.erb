@@ -1,0 +1,57 @@
+<%= render 'head' %>
+      <div class="form-group">
+        <%= form_for(@instructor) do |f| %>
+          <% if @instructor.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
+
+              <ul>
+              <% @instructor.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="list-group-item list-group-item-info col-sm-5">
+            <p>
+              <%= f.label :nombre %>
+              <%= f.text_field :nombre %>
+            </p>
+            <p>
+              <%= f.label :apellido_paterno %>
+              <%= f.text_field :ap %>
+            </p>
+            <p>
+              <%= f.label :apellido_materno %>
+              <%= f.text_field :am %>
+            </p>
+            <p>
+              <%= f.label :telefono %>
+              <%= f.text_field :tel %>
+            </p>
+            <p>
+              <%= f.label :direccion %>
+              <%= f.text_field :dir %>
+            </p>
+            <p>
+              <%= f.label :dia_que_imparte_clase %>
+              <%= f.text_field :dia %>
+            </p>
+            <p>
+              <%= f.label :horario %>
+              <%= f.text_field :horario %>
+            </p>
+            <p>
+              <%= f.label :correo_electronico %><br>
+              <%= f.text_field :mail %>
+            </p>
+            <p>
+              <%= f.submit 'Guardar', class:"btn btn-success"%>
+              <a href="/instructors" class="btn btn-warning">Cancelar</a>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

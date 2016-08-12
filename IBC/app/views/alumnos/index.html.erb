@@ -1,0 +1,29 @@
+<%= render '/computacion/head' %>
+      <hr>
+      <h2>Alumnos</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> <%=Date.current.to_s%></h5>
+      <%= link_to 'Nuevo Alumno', '/alumnos/new',class:"btn btn-primary" %>
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha Nacimiento</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Email</th>
+        </tr>
+        <% @alumno.each do |a|%>
+          <tr>
+            <td><%=a.nombre_a%> <%=a.app%> <%=a.apm%></td>
+            <td><%=a.fecha_nac%></td>
+            <td><%=a.direccion%></td>
+            <td><%=a.telefono%></td>
+            <td><%=a.email%></td>
+            <td><%= link_to 'Mostrar', alumno_path(a), class:"btn btn-info"%></td>
+            <td><%= link_to 'Editar', edit_alumno_path(a), class:"btn btn-warning"%></td>
+            <td><%= link_to 'Eliminar', alumno_path(a), method: :delete, data: { confirm: '¿Estas seguro?'},class:"btn btn-danger" %>            
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

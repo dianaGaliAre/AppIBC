@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/usuario">Inicio</a></li>
+        
+        <li><a href="#section2">Configuraciones</a></li>
+      </ul><br>      
+    </div>
+
+<div class="login">
+  <div class="container">
+    <div class="form">
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-3 text-center">
+    <h1>Usuario</h1>  
+      <%= form_for(@user) do |f| %>
+      <% @user.errors.full_messages.each do |message| %>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <%= message %>
+        </div>
+      </div>
+      <% end %>
+<%=f.select(:nombre, @instructor.collect {|d| [d.nombre, d.id]}, {}, {:class => "form-control"} )%>
+
+          <br>
+         
+        <%= f.password_field :password, :placeholder => "Password" ,class:"form-control"%><br>
+        <%= f.password_field :password_confirmation, :placeholder => "Password" ,class:"form-control"%><br>
+
+
+        <br>
+        <%= f.submit "Guardar", class: "btn-submit btn btn-success" %>      
+        <a href="/usuario" class="btn btn-warning">Cancelar</a>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
